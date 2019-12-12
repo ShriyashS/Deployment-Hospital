@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Survival Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' type='text/css' href = 'css/style.css'>
+
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Fraud Claim Prediction</h1>
+	<p>To determine which Hospital are Fraudulent or Genuine to claim medical insurance<p>
+
+	<p>Area_service {Capital/Adirond : 170999, Central NY : 171708, Finger Lakes : 156564, Hudson Valley : 261725, New York City : 74800, Southern Tier : 31873, Western NY : 180906}
+	   <br>Home or self care {Another Type Not Listed :4552, Cancer Center or Children's Hospital: 1883, Court/Law Enforcement : 3287, Critical Access Hospital : 32, Expired : 22806, Facility w/ Custodial/Supportive Care : 3492, Federal Health Care Facility : 455, Home or Self Care : 694841, Home w/ Home Health Services : 132114, Hosp Basd Medicare Approved Swing Bed: 1879, Hospice - Home : 4735, Hospice - Medical Facility : 4784, Inpatient Rehabilitation Facility : 17374, Left Against Medical Advice : 17036, Medicaid Cert Nursing Facility : 7, Medicare Cert Long Term Care Hospital : 2128, Psychiatric Hospital or Unit of Hosp : 6710, Short-term Hospital : 21462, Skilled Nursing Home : 108998}
+	<p>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Area_Service" placeholder="Area_Service" required="required" />
+	<input type="text" name="Days_spend_hsptl" placeholder="Days_spend_hsptl" required="required" />
+        <input type="text" name="Home or self care," placeholder="Home or self care," required="required" />
+	<input type="text" name="ccs_diagnosis_code" placeholder="ccs_diagnosis_code" required="required" />
+        <input type="text" name="Code_illness" placeholder="Code_illness" required="required" />
+	<input type="text" name="Mortality risk" placeholder="Mortality risk" required="required" />
+	<input type="text" name="Tot_cost" placeholder="Tot_cost" required="required" />
+        <input type="text" name="Tot_charg" placeholder="Tot_charge" required="required" />
+	<input type="text" name="Hospital_id" placeholder="Hospital_id" required="required" />
+	<input type="text" name="Abortion_Y" placeholder="Abortion_Y" required="required" />
+	<input type="text" name="Emergency dept_yes/No_Y" placeholder="Emergency dept_yes/No_Y" required="required" />
+
+	
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+	
+ 
+   <br><p>Created By Project 8/Team 1<p>		
+ </div>
+
+
+</body>
+</html>
